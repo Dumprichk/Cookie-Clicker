@@ -1,57 +1,38 @@
 @font-face {
     font-family: 'Bubble Games';
-
     src: url('BubbleGames.ttf') format('truetype');
-
-    font-weight: normal;
-    font-style: normal;
-
 }
 
 * {
     margin: 0;
     padding: 0;
-
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Bubble Games', sans-serif;
-
-    background-color: #eeeeee;
-
+    background: #eeeeee;
     color: #222222;
-
-    min-height: 100vh;
-
+    font-family: 'Bubble Games', sans-serif;
     overflow-x: hidden;
-
 }
 
 /* =========================================
-MAIN GAME LAYOUT
+ORIGINAL LAYOUT
 ========================================= */
 
 .game {
-    width: 100%;
-
-    max-width: 1500px;
-
+    width: 100vw;
     min-height: 100vh;
 
-    margin: 0 auto;
+     display: flex;
+    flex-direction: row;
 
-    padding: 30px;
+    gap: 15px;
 
-    display: grid;
+    padding: 15px;
 
-    grid-template-columns:
-        270px minmax(400px, 1fr) 300px;
-
-    gap: 25px;
-
-    align-items: start;
-
+    align-items: stretch;
+    
 }
 
 /* =========================================
@@ -59,99 +40,88 @@ COOKIE SIDE
 ========================================= */
 
 .cookie-side {
-    background-color: #ffffff;
+    width: 270px;
+    min-width: 270px;
+
+     background: #ffffff;
 
     border: 4px solid #222222;
+    border-radius: 12px;
 
-    border-radius: 18px;
-
-    padding: 25px 20px;
+    padding: 15px;
 
     text-align: center;
 
-    box-shadow: 7px 7px 0 #222222;
-
-    position: sticky;
-
-    top: 25px;
-
+    box-shadow: 6px 6px 0 #222222;
+    
 }
 
 .title {
     color: #222222;
 
-    font-size: 30px;
+     font-size: 27px;
 
-    line-height: 1.2;
-
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 
     text-shadow:
         3px 3px 0 #cccccc;
-
+    
 }
 
 #count {
-    font-size: 35px;
+    font-size: 32px;
 
-    font-weight: bold;
-
-    color: #c47a32;
+     color: #c47a32;
 
     margin-bottom: 5px;
-
+    
 }
 
 #cps,
 #cpc {
-    font-family: Arial, sans-serif;
-
-    font-size: 14px;
-
     color: #666666;
 
-    margin: 4px 0;
+     font-family: Arial, sans-serif;
 
+    font-size: 13px;
+
+    margin: 3px 0;
+    
 }
 
 /* =========================================
-COOKIE BUTTON
+COOKIE
 ========================================= */
 
 #cookie {
-    display: block;
+    width: 125px;
+    height: 125px;
 
-    width: 170px;
+     margin: 15px auto;
 
-    height: 170px;
+    display: flex;
 
-    margin: 25px auto;
+    align-items: center;
+    justify-content: center;
 
     border: none;
 
     background: transparent;
 
-    font-size: 120px;
-
-    line-height: 1;
+    font-size: 105px;
 
     cursor: pointer;
 
-    transition:
-        transform 0.12s,
-        filter 0.12s;
-
+    transition: transform 0.1s;
+    
 }
 
 #cookie:hover {
-    transform: scale(1.06);
-
-    filter: drop-shadow(0 8px 0 #c47a32);
-
+    transform: scale(1.05);
 }
 
 #cookie:active {
-    transform: scale(0.92);
+    transform: scale(0.9);
 }
 
 /* =========================================
@@ -159,53 +129,48 @@ COMBO
 ========================================= */
 
 .combo-container {
-    margin: 15px 0;
+    margin: 10px 0;
 }
 
 .combo-label {
-    font-size: 14px;
+    color: #666666;
 
-    color: #888888;
+     font-size: 12px;
 
-    margin-bottom: 6px;
-
+    margin-bottom: 5px;
+    
 }
 
 .combo-bar {
     width: 100%;
+    height: 16px;
 
-    height: 18px;
-
-    background-color: #eeeeee;
+     background: #eeeeee;
 
     border: 3px solid #222222;
 
-    border-radius: 8px;
+    border-radius: 6px;
 
     overflow: hidden;
-
-    box-shadow:
-        3px 3px 0 #222222;
-
+    
 }
 
 .combo-fill {
     height: 100%;
 
-    background-color: #c47a32;
+     background: #c47a32;
 
-    transition:
-        width 0.1s linear;
-
+    transition: width 0.1s linear;
+    
 }
 
 .combo-text {
-    margin-top: 6px;
+    margin-top: 4px;
 
-    font-size: 13px;
+     color: #c47a32;
 
-    color: #c47a32;
-
+    font-size: 11px;
+    
 }
 
 /* =========================================
@@ -213,243 +178,214 @@ STATS
 ========================================= */
 
 .stats {
-    margin-top: 20px;
+    margin-top: 10px;
 
-    padding: 15px;
+     padding: 10px;
 
-    background-color: #f7f7f7;
-
-    border: 3px solid #222222;
-
-    border-radius: 11px;
-
-    text-align: left;
-
-    box-shadow:
-        4px 4px 0 #c47a32;
-
-}
-
-.stats-title {
-    color: #c47a32;
-
-    font-size: 18px;
-
-    margin-bottom: 10px;
-
-    text-align: center;
-
-}
-
-.stats div {
-    font-family: Arial, sans-serif;
-
-    font-size: 13px;
-
-    color: #555555;
-
-    margin: 5px 0;
-
-}
-
-.stats span {
-    color: #222222;
-
-    font-weight: bold;
-
-}
-
-/* =========================================
-SECTION DIVIDER
-========================================= */
-
-.section-line {
-    height: 3px;
-
-    background-color: #222222;
-
-    margin: 18px 0;
-
-}
-
-/* =========================================
-SAVE GAME
-========================================= */
-
-.save-title {
-    font-size: 18px;
-
-    color: #c47a32;
-
-    margin-bottom: 10px;
-
-}
-
-.save-buttons {
-    display: flex;
-
-    gap: 7px;
-
-    justify-content: center;
-
-}
-
-.small-button {
-    font-family: 'Bubble Games', sans-serif;
-
-    padding: 9px 12px;
-
-    background-color: #ffffff;
-
-    color: #222222;
+    background: #f5f5f5;
 
     border: 3px solid #222222;
 
     border-radius: 8px;
 
-    cursor: pointer;
-
-    box-shadow:
-        3px 3px 0 #222222;
-
-    transition: 0.2s;
-
+    text-align: left;
+    
 }
 
-.small-button:hover {
-    background-color: #fff0dc;
-
-    transform:
-        translate(-2px, -2px);
-
-    box-shadow:
-        5px 5px 0 #222222;
-
-}
-
-.small-button:active {
-    transform:
-        translate(1px, 1px);
-
-    box-shadow:
-        2px 2px 0 #222222;
-
-}
-
-.autosave {
-    margin: 12px 0;
-
+.stats div {
     font-family: Arial, sans-serif;
 
-    font-size: 13px;
+     font-size: 11px;
 
     color: #666666;
 
+    margin: 4px 0;
+    
+}
+
+.stats span {
+    color: #222222;
+
+     font-weight: bold;
+    
+}
+
+.section-line {
+    height: 2px;
+
+     background: #222222;
+
+    margin: 10px 0;
+    
+}
+
+.save-title {
+    color: #c47a32;
+
+     font-size: 15px;
+
+    margin-bottom: 6px;
+    
+}
+
+.save-buttons {
+    display: flex;
+
+     justify-content: center;
+
+    gap: 5px;
+    
+}
+
+.small-button {
+    padding: 6px 9px;
+
+     background: #ffffff;
+
+    color: #222222;
+
+    border: 3px solid #222222;
+
+    border-radius: 6px;
+
+    font-family: 'Bubble Games', sans-serif;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    box-shadow: 3px 3px 0 #222222;
+
+    transition: 0.15s;
+    
+}
+
+.small-button:hover {
+    background: #eeeeee;
+
+     transform: translate(-1px, -1px);
+
+    box-shadow: 4px 4px 0 #222222;
+    
+}
+
+.autosave {
+    margin: 7px 0;
+
+     font-family: Arial, sans-serif;
+
+    font-size: 11px;
+
+    color: #666666;
+    
 }
 
 #resetButton {
     width: 100%;
-
-    background-color: #eeeeee;
-
 }
 
 #saveMessage {
-    min-height: 18px;
+    min-height: 14px;
 
-    margin-top: 8px;
+     margin-top: 5px;
+
+    color: #c47a32;
 
     font-family: Arial, sans-serif;
 
-    font-size: 12px;
-
-    color: #c47a32;
-
+    font-size: 10px;
+    
 }
 
 /* =========================================
-SHOP
+SHOP SIDE
 ========================================= */
 
 .shop-side {
-    background-color: #ffffff;
+    flex: 1;
+
+     min-width: 0;
+
+    background: #ffffff;
 
     border: 4px solid #222222;
 
-    border-radius: 18px;
+    border-radius: 12px;
 
-    padding: 22px;
+    padding: 15px;
 
-    box-shadow:
-        7px 7px 0 #222222;
+    box-shadow: 6px 6px 0 #222222;
 
+    overflow-y: auto;
+    
 }
 
 .shop-title {
-    font-size: 32px;
-
     color: #222222;
 
-    margin-bottom: 20px;
+     font-size: 27px;
+
+    margin-bottom: 10px;
 
     text-shadow:
         3px 3px 0 #cccccc;
-
+    
 }
 
 .shop-heading {
-    font-size: 20px;
-
     color: #c47a32;
 
-    margin: 20px 0 10px;
+     font-size: 16px;
 
-    border-bottom: 3px solid #222222;
+    margin: 12px 0 7px;
 
-    padding-bottom: 7px;
+    border-bottom: 2px solid #222222;
 
+    padding-bottom: 4px;
+    
 }
 
 .shop-grid {
     display: grid;
 
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+     grid-template-columns:
+        repeat(3, minmax(0, 1fr));
 
-    gap: 10px;
-
+    gap: 7px;
+    
 }
 
 .shop-item {
-    background-color: #f7f7f7;
+    background: #f5f5f5;
 
-    border: 3px solid #222222;
+     border: 3px solid #222222;
 
-    border-radius: 11px;
+    border-radius: 7px;
 
-    padding: 12px;
+    padding: 7px;
 
-    box-shadow:
-        4px 4px 0 #c47a32;
+    min-width: 0;
 
-    transition: 0.2s;
+    min-height: 83px;
 
+    transition: 0.15s;
+    
 }
 
 .shop-item:hover {
-    transform:
-        translate(-2px, -2px);
+    background: #eeeeee;
 
-    box-shadow:
-        6px 6px 0 #c47a32;
+     transform: translate(-2px, -2px);
 
+    box-shadow: 4px 4px 0 #c47a32;
+    
 }
 
 .shop-icon {
-    font-size: 35px;
+    font-size: 25px;
 
-    margin-bottom: 6px;
-
+     margin-bottom: 3px;
+    
 }
 
 .shop-info {
@@ -457,227 +393,210 @@ SHOP
 }
 
 .shop-name {
-    font-size: 16px;
-
     color: #222222;
 
-    margin-bottom: 4px;
+     font-size: 12px;
 
+    margin-bottom: 2px;
+    
 }
 
 .shop-description {
-    font-family: Arial, sans-serif;
-
-    font-size: 11px;
-
-    line-height: 1.4;
-
     color: #666666;
 
-    margin-bottom: 8px;
+     font-family: Arial, sans-serif;
 
+    font-size: 9px;
+
+    line-height: 1.25;
+
+    margin-bottom: 5px;
+    
 }
 
 .shop-button {
     width: 100%;
 
-    padding: 8px 6px;
+     padding: 5px;
 
-    background-color: #c47a32;
+    background: #c47a32;
 
-    color: white;
+    color: #ffffff;
 
-    border: 3px solid #222222;
+    border: 2px solid #222222;
 
-    border-radius: 7px;
+    border-radius: 5px;
 
     font-family: 'Bubble Games', sans-serif;
 
-    font-size: 12px;
+    font-size: 9px;
 
     cursor: pointer;
 
-    box-shadow:
-        3px 3px 0 #222222;
-
-    transition: 0.2s;
-
+    transition: 0.15s;
+    
 }
 
 .shop-button:hover {
-    background-color: #df984e;
+    background: #df984e;
 
-    transform:
-        translate(-2px, -2px);
-
-    box-shadow:
-        5px 5px 0 #222222;
-
+     transform: translateY(-1px);
+    
 }
 
 .shop-button:disabled {
-    background-color: #cccccc;
+    background: #cccccc;
 
-    color: #777777;
+     color: #777777;
 
     cursor: not-allowed;
-
-    transform: none;
-
-    box-shadow:
-        3px 3px 0 #222222;
-
+    
 }
 
 /* =========================================
-ACHIEVEMENTS
+ACHIEVEMENT SIDE
 ========================================= */
 
 .achievement-side {
-    background-color: #ffffff;
+    width: 205px;
+    min-width: 205px;
+
+     background: #ffffff;
 
     border: 4px solid #222222;
 
-    border-radius: 18px;
+    border-radius: 12px;
 
-    padding: 22px;
+    padding: 12px;
 
-    box-shadow:
-        7px 7px 0 #222222;
+    box-shadow: 6px 6px 0 #222222;
 
-    position: sticky;
-
-    top: 25px;
-
+    overflow-y: auto;
+    
 }
 
 .achievement-title {
-    font-size: 27px;
-
     color: #222222;
 
-    margin-bottom: 10px;
+     font-size: 20px;
 
-    text-shadow:
-        3px 3px 0 #cccccc;
+    line-height: 1.2;
 
+    margin-bottom: 7px;
+    
 }
 
 #achievementCount {
     display: inline-block;
 
-    padding: 5px 8px;
+     margin-top: 4px;
 
-    background-color: #fff0dc;
+    padding: 3px 6px;
+
+    background: #eeeeee;
 
     color: #c47a32;
 
-    border: 2px solid #c47a32;
+    border: 2px solid #222222;
 
-    border-radius: 6px;
+    border-radius: 5px;
 
-    font-size: 12px;
-
-    text-shadow: none;
-
-    vertical-align: middle;
-
+    font-size: 9px;
+    
 }
 
 .achievement-help {
-    font-family: Arial, sans-serif;
-
-    font-size: 12px;
-
     color: #777777;
 
-    margin-bottom: 15px;
+     font-family: Arial, sans-serif;
 
+    font-size: 9px;
+
+    line-height: 1.3;
+
+    margin-bottom: 8px;
+    
 }
 
 .achievement-list {
     display: grid;
 
-    grid-template-columns:
-        repeat(2, minmax(0, 1fr));
+     grid-template-columns:
+        repeat(4, minmax(0, 1fr));
 
-    gap: 9px;
-
+    gap: 5px;
+    
 }
 
 .achievement {
-    background-color: #eeeeee;
+    background: #eeeeee;
 
-    border: 3px solid #999999;
+     border: 2px solid #999999;
 
-    border-radius: 10px;
+    border-radius: 5px;
 
-    padding: 10px 7px;
+    min-height: 65px;
 
-    min-height: 90px;
+    padding: 5px 2px;
 
     display: flex;
 
     flex-direction: column;
 
-    align-items: center;
-
     justify-content: center;
+
+    align-items: center;
 
     text-align: center;
 
-    opacity: 0.5;
+    opacity: 0.45;
 
-    transition: 0.2s;
-
-}
-
-.achievement:hover {
-    transform:
-        translate(-2px, -2px);
+    transition: 0.15s;
+    
 }
 
 .achievement.unlocked {
     opacity: 1;
 
-    background-color: #fff0dc;
+     background: #fff0dc;
 
     border-color: #c47a32;
 
-    box-shadow:
-        4px 4px 0 #c47a32;
-
+    box-shadow: 3px 3px 0 #c47a32;
+    
 }
 
 .achievement.locked {
-    opacity: 0.45;
+    opacity: 0.4;
 }
 
 .achievement-icon {
-    font-size: 30px;
+    font-size: 24px;
 
-    margin-bottom: 5px;
-
+     margin-bottom: 2px;
+    
 }
 
 .achievement strong {
-    font-size: 12px;
-
     color: #222222;
 
+     font-size: 8px;
+
+    line-height: 1.1;
+    
 }
 
 .achievement div:last-child {
-    font-family: Arial, sans-serif;
-
-    font-size: 9px !important;
-
     color: #666666;
 
-    margin-top: 4px;
+     font-family: Arial, sans-serif;
 
-    line-height: 1.3;
+    font-size: 6px !important;
 
+    line-height: 1.15;
+
+    margin-top: 2px;
+    
 }
 
 /* =========================================
@@ -687,64 +606,42 @@ GOLDEN COOKIE
 #goldenCookie {
     position: fixed;
 
-    right: 25px;
+     width: 65px;
+    height: 65px;
 
-    bottom: 25px;
-
-    width: 75px;
-
-    height: 75px;
+    display: none;
 
     border: 4px solid #222222;
 
     border-radius: 50%;
 
-    background-color: #ffd84d;
+    background: #ffd84d;
 
-    font-size: 40px;
+    font-size: 35px;
 
     cursor: pointer;
 
-    box-shadow:
-        5px 5px 0 #222222;
-
-    z-index: 50;
-
-    transition: 0.2s;
-
-    animation: goldenPulse 1.5s infinite;
-
-}
-
-#goldenCookie:hover {
-    transform:
-        scale(1.1) rotate(-5deg);
+    z-index: 100;
 
     box-shadow:
-        7px 7px 0 #222222;
+        4px 4px 0 #222222;
 
-}
-
-#goldenCookie:active {
-    transform:
-        scale(0.95);
+    animation: goldenPulse 1.2s infinite;
+    
 }
 
 @keyframes goldenPulse {
 
     0%,
     100% {
-        box-shadow:
-            5px 5px 0 #222222;
+        transform: scale(1);
     }
 
-    50% {
-        box-shadow:
-            5px 5px 0 #222222,
-            0 0 20px #ffd84d;
+     50% {
+        transform: scale(1.08);
     }
 
-
+    
 }
 
 /* =========================================
@@ -754,27 +651,26 @@ ACHIEVEMENT POPUP
 #achievementPopup {
     position: fixed;
 
-    top: 20px;
-
+     top: 15px;
     left: 50%;
 
     transform:
-        translateX(-50%) translateY(-150px);
+        translateX(-50%) translateY(-100px);
 
-    width: min(400px, 90vw);
+    width: min(350px, 90vw);
 
-    padding: 15px 20px;
+    padding: 10px 15px;
 
-    background-color: #ffffff;
+    background: #ffffff;
 
-    border: 4px solid #222222;
+    border: 3px solid #222222;
 
-    border-radius: 12px;
+    border-radius: 8px;
 
     box-shadow:
-        6px 6px 0 #c47a32;
+        4px 4px 0 #c47a32;
 
-    z-index: 100;
+    z-index: 200;
 
     display: flex;
 
@@ -782,11 +678,8 @@ ACHIEVEMENT POPUP
 
     text-align: center;
 
-    pointer-events: none;
-
-    transition:
-        transform 0.3s ease;
-
+    transition: transform 0.25s;
+    
 }
 
 #achievementPopup.show {
@@ -795,21 +688,21 @@ ACHIEVEMENT POPUP
 }
 
 #popupTitle {
-    font-size: 18px;
-
     color: #c47a32;
 
-    margin-bottom: 5px;
+     font-size: 15px;
 
+    margin-bottom: 3px;
+    
 }
 
 #popupText {
-    font-family: Arial, sans-serif;
-
-    font-size: 12px;
-
     color: #555555;
 
+     font-family: Arial, sans-serif;
+
+    font-size: 10px;
+    
 }
 
 /* =========================================
@@ -818,17 +711,48 @@ RESPONSIVE
 
 @media screen and (max-width: 1100px) {
 
-    .game {
-        grid-template-columns:
-            240px minmax(350px, 1fr);
-
-        padding: 22px;
+     .cookie-side {
+        width: 230px;
+        min-width: 230px;
     }
 
     .achievement-side {
-        grid-column: 1 / -1;
+        width: 180px;
+        min-width: 180px;
+    }
+
+    .shop-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .achievement-list {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    
+}
+
+@media screen and (max-width: 800px) {
+
+     .game {
+        flex-direction: column;
+
+        min-height: auto;
+    }
+
+    .cookie-side,
+    .shop-side,
+    .achievement-side {
+        width: 100%;
+        min-width: 0;
 
         position: static;
+    }
+
+    .cookie-side {
+        max-width: 500px;
+
+        margin: 0 auto;
     }
 
     .achievement-list {
@@ -836,32 +760,20 @@ RESPONSIVE
             repeat(4, minmax(0, 1fr));
     }
 
-
+    
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 650px) {
 
-    .game {
-        grid-template-columns: 1fr;
+     .game {
+        padding: 10px;
 
-        padding: 18px;
+        gap: 10px;
     }
 
-    .cookie-side,
-    .achievement-side {
-        position: static;
-    }
-
-    .cookie-side {
-        max-width: 500px;
-
-        width: 100%;
-
-        margin: 0 auto;
-    }
-
-    .shop-side {
-        width: 100%;
+    .shop-grid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
     }
 
     .achievement-list {
@@ -869,18 +781,19 @@ RESPONSIVE
             repeat(3, minmax(0, 1fr));
     }
 
+    #cookie {
+        width: 105px;
+        height: 105px;
 
-}
-
-@media screen and (max-width: 650px) {
-
-    .game {
-        padding: 12px;
-
-        gap: 18px;
+        font-size: 90px;
     }
 
-    .shop-grid {
+    
+}
+
+@media screen and (max-width: 420px) {
+
+     .shop-grid {
         grid-template-columns: 1fr;
     }
 
@@ -889,96 +802,22 @@ RESPONSIVE
             repeat(2, minmax(0, 1fr));
     }
 
-    .shop-title {
-        font-size: 27px;
-    }
-
-    .title {
-        font-size: 27px;
-    }
-
-    #cookie {
-        width: 145px;
-
-        height: 145px;
-
-        font-size: 100px;
-    }
-
-    #goldenCookie {
-        width: 62px;
-
-        height: 62px;
-
-        right: 15px;
-
-        bottom: 15px;
-
-        font-size: 32px;
-    }
-
-
-}
-
-@media screen and (max-width: 420px) {
-
-    .game {
-        padding: 8px;
-
-        gap: 14px;
-    }
-
     .cookie-side,
     .shop-side,
     .achievement-side {
-        padding: 15px;
-
-        border-width: 3px;
-
-        box-shadow:
-            5px 5px 0 #222222;
-    }
-
-    .title {
-        font-size: 24px;
-    }
-
-    #count {
-        font-size: 29px;
-    }
-
-    #cookie {
-        width: 125px;
-
-        height: 125px;
-
-        font-size: 85px;
-
-        margin: 18px auto;
-    }
-
-    .achievement-list {
-        grid-template-columns: 1fr 1fr;
-
-        gap: 7px;
-    }
-
-    .achievement {
-        min-height: 80px;
-
-        padding: 7px 4px;
-    }
-
-    .achievement-icon {
-        font-size: 24px;
-    }
-
-    .achievement strong {
-        font-size: 10px;
-    }
-
-    .shop-item {
         padding: 10px;
     }
 
+    .title {
+        font-size: 23px;
+    }
+
+    #cookie {
+        width: 95px;
+        height: 95px;
+
+        font-size: 80px;
+    }
+
+    
 }
